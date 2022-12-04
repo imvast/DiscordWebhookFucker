@@ -1,7 +1,7 @@
 <div align="center">
   <kbd>
   <a href="https://github.com/imvast/DiscordWebhookFucker">
-    <img src="https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/604150242d4c6f111dc4e0e8_AMXD2mEvYtyJeooktUtHlCW0f3vrpbwrCN0KjvULcmHdfWBRaAyxA9cSiPn_t6wHhI4mm1qbImd2ewbgBQwm-EtT8hZVevgGiACcBFZ58UQC6EPLcV-mQtaHVb02PzhRrjrpYsnz.png" alt="Logo" width="300" height="300">
+    <img src="https://cdn.upload.systems/uploads/9rxsoIXv.png" alt="Logo" width="1000" height="550">
   </a>
   </kbd>
   
@@ -40,6 +40,7 @@
 ---------------------------------------
 
 ### 🚀 Milestones
+* 15 Stars - Improve UI
 * 50 Stars - Optimization
 * suggest more things for me to do cuz idk
 
