@@ -1,0 +1,2 @@
+# DiscordWebhookFucker
+Discord Webhook Fucker
