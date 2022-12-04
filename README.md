@@ -56,6 +56,9 @@
 ### 📜 ChangeLog
 
 ```diff
+v0.0.3 ⋮ 12/04/2022
++ UI Fixes & Optimization
+
 v0.0.2 ⋮ 12/03/2022
 + Added Config
 + Added Random UA

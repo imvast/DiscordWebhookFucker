@@ -66,26 +66,25 @@ func main() {
 
 func ConsoleThread() {
 	fmt.Printf(purple+`
-		▓█████▄  █     █░  █████▒
-		▒██▀ ██▌▓█░ █ ░█░▓██   ▒ 
-		░██   █▌▒█░ █ ░█ ▒████ ░ 
-		░▓█▄   ▌░█░ █ ░█ ░▓█▒  ░ 
-		░▒████▓ ░░██▒██▓ ░▒█░    
-		▒▒▓  ▒ ░ ▓░▒ ▒   ▒ ░    
-		░ ▒  ▒   ▒ ░ ░   ░      
-		░ ░  ░   ░   ░   ░ ░    
-		░        ░            
-		░                       
-%v[%vDiscord Webhook Fucker%v]%v               %v$%vimvast%v
+			▓█████▄  █     █░  █████▒
+			▒██▀ ██▌▓█░ █ ░█░▓██   ▒ 
+			░██   █▌▒█░ █ ░█ ▒████ ░ 
+			░▓█▄   ▌░█░ █ ░█ ░▓█▒  ░ 
+			░▒████▓ ░░██▒██▓ ░▒█░    
+			▒▒▓  ▒ ░ ▓░▒ ▒   ▒ ░    
+			░ ▒  ▒   ▒ ░ ░   ░      
+			░ ░  ░   ░   ░   ░ ░    
+			░        ░            
+			░                       
+    %v[%vDiscord Webhook Fucker%v]%v               %v$%vimvast%v
 
-
-	%v`, pink, purple, pink, reset, pink, purple, reset, reset)
+		           %vProxies Loaded:%v %v
+	%v`, pink, purple, pink, reset, pink, purple, reset, purple, pink, len(proxies), reset)
 	writer := uilive.New()
 	writer.Start()
 	defer writer.Stop()
 	for {
-		fmt.Fprintf(writer, "%vProxies Loaded:%v %v\n", purple, pink, len(proxies))
-		fmt.Fprintf(writer.Newline(), "                           %vWebhooks  Sent:%v %v\n", purple, pink, workdamt)
+		fmt.Fprintf(writer, "%vWebhooks  Sent:%v %v\n", purple, pink, workdamt)
 		fmt.Fprintf(writer.Newline(), "\n%v[%v] %v[Running Fucker]%v", pink, time.Now().Format("15:04:05"), purple, reset)
 		time.Sleep(time.Millisecond * 5)
 		writer.Flush()
@@ -136,6 +135,6 @@ func SendReq() {
 		body := string(res.Body())
 		fmt.Printf("[!] %v | %v", res.StatusCode(), body)
 	} else {
-		fmt.Println("check for error: res.StatusCode")
+		return //fmt.Println("check for error: res.StatusCode")
 	}
 }
