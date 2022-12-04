@@ -1,2 +1,68 @@
-# DiscordWebhookFucker
-Discord Webhook Fucker
+<div align="center">
+  <kbd>
+  <a href="https://github.com/imvast/DiscordWebhookFucker">
+    <img src="https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/604150242d4c6f111dc4e0e8_AMXD2mEvYtyJeooktUtHlCW0f3vrpbwrCN0KjvULcmHdfWBRaAyxA9cSiPn_t6wHhI4mm1qbImd2ewbgBQwm-EtT8hZVevgGiACcBFZ58UQC6EPLcV-mQtaHVb02PzhRrjrpYsnz.png" alt="Logo" width="300" height="300">
+  </a>
+  </kbd>
+  
+  <h2 align="center">Discord - Webhook Flooder</h2>
+
+    CREDIT:
+    base of this project was imitated from https://github.com/dropout1337/TikTok-Username-Checker
+  <p align="center">
+    A simple and fast webhook flooder "discord.com" (<b> created by me </b>)
+    <br />
+    <br />
+    <a href="https://skiddos.t.me">🌌 Telegram</a>
+    ·
+    <a href="https://github.com/imvast/DiscordWebhookFucker#-changelog">📜 ChangeLog</a>
+    ·
+    <a href="https://github.com/imvast/DiscordWebhookFucker/issues">⚠️ Report Bug</a>
+    ·
+    <a href="https://github.com/imvast/DiscordWebhookFucker/issues">💡 Request Feature</a>
+  </p>
+</div>
+
+---------------------------------------
+
+### ⚙️ Installation
+* Requires: `GoLang 1.16+`
+* Start: `go run main.go`
+
+---------------------------------------
+
+### 🔥 Features
+* User Friendly Interface
+* Fast Speeds
+* tbd** Simple & Easy Configuration
+
+---------------------------------------
+
+### 🚀 Milestones
+* 10 Stars - More user friendly
+* 20 Stars - Better configuration
+* 50 Stars - Optimization
+
+---------------------------------------
+
+### ❗ Disclaimers
+- I am not responsible for anything that may happen, such as, API Blocking, Account Termination, etc.
+- This **may** slow down your wifi and/or host computer
+- This was a quick project that was made for fun, so if you want to see further updates, star the repo & create an "issue" [here](https://github.com/imvast/DiscordWebhookFucker/issues/new/choose)
+
+---------------------------------------
+
+### 📜 ChangeLog
+
+```diff
+v0.0.1 ⋮ 12/03/2022
++ First release
+```
+
+---------------------------------------
+
+<p align="center">
+  <img src="https://img.shields.io/github/license/imvast/DiscordWebhookFucker.svg?style=for-the-badge&labelColor=black&color=f429ff&logo=IOTA"/>
+  <img src="https://img.shields.io/github/stars/imvast/DiscordWebhookFucker.svg?style=for-the-badge&labelColor=black&color=f429ff&logo=IOTA"/>
+  <img src="https://img.shields.io/github/languages/top/imvast/DiscordWebhookFucker.svg?style=for-the-badge&labelColor=black&color=f429ff&logo=go"/>
+</p>
