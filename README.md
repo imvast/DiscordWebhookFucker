@@ -8,7 +8,7 @@
   <h2 align="center">Discord - Webhook Flooder</h2>
 
     CREDIT:
-    base of this project was imitated from https://github.com/dropout1337/TikTok-Username-Checker
+    base of this project was imitated/inspired from https://github.com/dropout1337/TikTok-Username-Checker
   <p align="center">
     A simple and fast webhook flooder "discord.com" (<b> created by me </b>)
     <br />
@@ -27,6 +27,7 @@
 
 ### ⚙️ Installation
 * Requires: `GoLang 1.16+`
+* Add Fresh Proxies to "proxies.txt" (https://proxyscrape.com)
 * Start: `go run main.go`
 
 ---------------------------------------
@@ -34,14 +35,13 @@
 ### 🔥 Features
 * User Friendly Interface
 * Fast Speeds
-* tbd** Simple & Easy Configuration
+* Simple & Easy Configuration
 
 ---------------------------------------
 
 ### 🚀 Milestones
-* 10 Stars - More user friendly
-* 20 Stars - Better configuration
 * 50 Stars - Optimization
+* suggest more things for me to do cuz idk
 
 ---------------------------------------
 
@@ -55,8 +55,13 @@
 ### 📜 ChangeLog
 
 ```diff
+v0.0.2 ⋮ 12/03/2022
++ Added Config
++ Added Random UA
++ Cleaned Up Code & Reinstated Unused Codeblock
+
 v0.0.1 ⋮ 12/03/2022
-+ First release
+! Initial release
 ```
 
 ---------------------------------------

